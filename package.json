@@ -3,15 +3,15 @@
   "description": "Qwik Speak Deepl Translator",
   "author": "Oliver Studer <oliver.studer@tegonal.com>",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "main": "./dist/index.js",
-  "bin": "./dist/bin/qwik-speak-deepl.js",
+  "bin": "./dist/qwik-speak-deepl.js",
   "engines": {
     "node": ">=20.0.0"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "rollup -c -w",
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "up": "yarn upgrade-interactive",

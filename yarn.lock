@@ -426,7 +426,7 @@ __metadata:
     ts-command-line-args: "npm:^2.5.1"
     typescript: "npm:^5.3.3"
   bin:
-    qwik-speak-deepl: ./dist/bin/qwik-speak-deepl.js
+    qwik-speak-deepl: ./dist/qwik-speak-deepl.js
   languageName: unknown
   linkType: soft
 
