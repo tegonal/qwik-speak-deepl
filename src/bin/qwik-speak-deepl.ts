@@ -11,7 +11,7 @@ program
   )
   .option('-nc, --noCache', "Don't use the existing cache", false)
   .option(
-    '-f --formality <level>',
+    '-f, --formality <level>',
     "Formality level to use. Available options are 'less' or 'more'",
     'less',
   )
