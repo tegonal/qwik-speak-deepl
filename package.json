@@ -3,7 +3,7 @@
   "description": "Qwik Speak Deepl Translator",
   "author": "Oliver Studer <oliver.studer@tegonal.com>",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "main": "./dist/index.js",
   "bin": "./dist/bin/qwik-speak-deepl.js",
