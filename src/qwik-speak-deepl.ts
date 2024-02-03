@@ -67,7 +67,7 @@ export async function qwikSpeakDeepL(args: QwikSpeakDeeplArgs) {
 
   const deepl = new DeeplTranslator(
     args.apiKey,
-    `${assetsPath}/.cache/deepl-cache.json`,
+    path.join(assetsPath, `.cache/deepl-cache.json`),
     args.noCache,
   );
 
@@ -88,9 +88,9 @@ export async function qwikSpeakDeepL(args: QwikSpeakDeeplArgs) {
       const targetFile = `${assetsPath}/${targetLanguage}/${sourceFileName}`;
       const filenameWithoutExtension = path.basename(targetFile, path.extname(targetFile));
 
-      const targetFilePrevious = `${path.dirname(targetFile)}/${filenameWithoutExtension}-${new Date().getTime()}.json`;
+      const targetFileBackup = `${path.dirname(targetFile)}/${filenameWithoutExtension}-${new Date().getTime()}.json`;
       if (fs.existsSync(targetFile)) {
-        fs.renameSync(targetFile, targetFilePrevious);
+        fs.copyFileSync(targetFile, targetFileBackup);
       }
 
       console.log(ansiCyan('🌐'), `Translating ${sourceFile} to ${targetLanguage}`);
@@ -107,7 +107,7 @@ export async function qwikSpeakDeepL(args: QwikSpeakDeeplArgs) {
       stats.stringsTranslated += countKeys(target);
 
       fs.writeFileSync(targetFile, JSON.stringify(target, null, 2));
-      const diffedStats = diffJson(sourceFile, targetFile, targetFilePrevious);
+      const diffedStats = diffJson(sourceFile, targetFile, targetFileBackup);
       stats.stringsChanged += diffedStats.stringsChanged;
       stats.stringsNew += diffedStats.stringsAdded;
     }

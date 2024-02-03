@@ -1,5 +1,6 @@
 {
   "name": "@tegonal/qwik-speak-deepl",
+  "repository": "https://github.com/tegonal/qwik-speak-deepl",
   "description": "Qwik Speak Deepl Translator",
   "author": "Oliver Studer <oliver.studer@tegonal.com>",
   "license": "MIT",

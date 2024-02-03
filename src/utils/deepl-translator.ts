@@ -1,11 +1,10 @@
 import type { SourceLanguageCode, TargetLanguageCode, TranslateTextOptions } from 'deepl-node';
 import * as deepl from 'deepl-node';
 import * as fs from 'fs';
-import { debounce } from 'lodash-es';
 import { hashString } from './hash-string';
 import path from 'path';
 import { pickLocale } from 'locale-matcher';
-import { deepLAvailableTargetLangs } from './deepl-available-langs';
+import { deepLAvailableSourceLangs, deepLAvailableTargetLangs } from './deepl-available-langs';
 
 export class DeeplTranslator {
   private readonly translator: deepl.Translator;
@@ -20,8 +19,11 @@ export class DeeplTranslator {
   constructor(apiKey: string, cacheFile: string, noCache: boolean) {
     this.cacheFile = cacheFile;
     this.translator = new deepl.Translator(apiKey);
+    if (noCache) {
+      console.log('Disabling cache');
+    }
     this.cache = noCache ? new Map() : this.loadCache(this.cacheFile);
-    this.saveCache = noCache ? () => {} : debounce(this.saveCacheImpl, 1000, { trailing: true }); // Debounce saveCache with a delay of 1000ms
+    this.saveCache = noCache ? () => {} : this.saveCacheImpl;
   }
 
   private loadCache(cacheFilePath: string): Map<string, string> {
@@ -69,7 +71,7 @@ export class DeeplTranslator {
       throw new Error(`Could not find a DeepL target language for ${targetLang}`);
     }
 
-    const matchedSourceLang = pickLocale(sourceLang, deepLAvailableTargetLangs);
+    const matchedSourceLang = pickLocale(sourceLang, deepLAvailableSourceLangs);
     if (!matchedSourceLang) {
       throw new Error(`Could not find a DeepL source language for ${sourceLang}`);
     }

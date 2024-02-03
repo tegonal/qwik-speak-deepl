@@ -4,8 +4,8 @@
 
 - Translate qwik-speak extracted JSON files using the DeepL API
 - Detects source and target languages automatically based on qwikSpeakInline() vite plugin configuration
-- Matches the source/target language to the DeepL API language codes as best as possible and tells you if there is no match available
-- Preserves dynamic placeholders like `{{name}}` and `{{count}}` withour relying on `preserveFormatting`
+- Matches the source/target language to the DeepL API language codes as good as possible and tells you if there is no match available
+- Preserves dynamic placeholders like `{{name}}` and `{{count}}` without relying on `preserveFormatting`
 - Caches each translated string in a local file to avoid unnecessary API calls
 - Backups previous translations before writing the new string set
 - Shows differences between the previous and the new string set

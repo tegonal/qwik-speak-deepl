@@ -70,8 +70,8 @@ UK - Ukrainian
 ZH - Chinese (simplified)`;
 
 export const deepLAvailableTargetLangs = compact(
-  avaliableTargetLangs.split('\n').map((line) => line.split(' - ')[0]),
+  avaliableTargetLangs.split('\n').map((line) => line.split(' - ')[0].toLowerCase()),
 );
 export const deepLAvailableSourceLangs = compact(
-  availableSourceLangs.split('\n').map((line) => line.split(' - ')[0]),
+  availableSourceLangs.split('\n').map((line) => line.split(' - ')[0].toLowerCase()),
 );
