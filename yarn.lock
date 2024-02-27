@@ -1021,14 +1021,14 @@ __metadata:
   linkType: hard
 
 "deepl-node@npm:^1.11.1":
-  version: 1.11.1
-  resolution: "deepl-node@npm:1.11.1"
+  version: 1.12.0
+  resolution: "deepl-node@npm:1.12.0"
   dependencies:
     "@types/node": "npm:>=12.0"
     axios: "npm:^1.6.4"
     form-data: "npm:^3.0.0"
     loglevel: "npm:>=1.6.2"
-  checksum: 10c0/14a78ff0146cb2c2ba8f011987ef6189e271c712d1bdf36fc4f2b3df14381ec0db7e1fd9e9a03f5a5dd5cd606015284ab6644039cae60340047a3ec2be6a64e7
+  checksum: 10c0/cf50db9dbf1e98eb380e707057975d5e8f1a78e35f7a16047936904570ff54490c1ce3477a5b40959e5ffc51ed6151eec394f3d47365faac34287530d591d952
   languageName: node
   linkType: hard
 
